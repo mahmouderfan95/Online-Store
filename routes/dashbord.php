@@ -11,6 +11,8 @@
     Route::group(['prefix' => 'admin','middleware' => 'auth:admin'],function (){
         Route::get('dashbord','DashbordController@dashbord')->name('admin.dashbord');
         Route::post('logout','DashbordController@logout')->name('admin.logout');
+        // categories route
+        Route::resource('categories','CategoryController');
     })
 
 
