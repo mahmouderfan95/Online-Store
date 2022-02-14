@@ -18,7 +18,7 @@
                                 <div class="clearfix"></div>
                             </a>
                             <ul id="mainCat-menu" class="collapse" data-parent="#sidebarnav">
-                                <li><a href="#">الاقسام</a></li>
+                                <li><a href="{{route('categories.index')}}">الاقسام</a></li>
                             </ul>
                         </li>
                     <!-- products -->
@@ -32,7 +32,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="products" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="#">المنتجات</a></li>
+                            <li><a href="{{route('products.index')}}">المنتجات</a></li>
                         </ul>
                     </li>
 

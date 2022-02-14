@@ -13,6 +13,7 @@
         Route::post('logout','DashbordController@logout')->name('admin.logout');
         // categories route
         Route::resource('categories','CategoryController');
+        Route::resource('products','ProductController');
     })
 
 
