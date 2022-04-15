@@ -70,7 +70,7 @@ class ProductController extends Controller
 
 
         }catch (\Exception $exception){
-
+            return redirect()->back()->with(['error' => $exception->getMessage()]);
         }
     }
 
@@ -82,7 +82,7 @@ class ProductController extends Controller
                 return redirect()->back()->with(['success' => 'تم حذف المنتج بنجاح']);
             }
         }catch (\Exception $exception){
-
+            return redirect()->back()->with(['error' => $exception->getMessage()]);
         }
     }
 }

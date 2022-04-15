@@ -14,6 +14,7 @@
         // categories route
         Route::resource('categories','CategoryController');
         Route::resource('products','ProductController');
+        Route::resource('users','UsersController');
     })
 
 
