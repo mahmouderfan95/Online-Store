@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','HomepageController@index')->name('homepage');
+Route::get('products/details/{name}','HomepageController@product_details')->name('product.details');
 
 Auth::routes();
 

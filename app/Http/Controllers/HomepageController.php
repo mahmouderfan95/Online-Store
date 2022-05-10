@@ -13,4 +13,13 @@ class HomepageController extends Controller
         }])->where('status',true)->get(['id','name','image','price','category_id']);
         return view('Website.homepage',compact('products'));
     }
+
+    public function product_details($name){
+        try{
+            $product = Product::where('name',$name)->first();
+            return view('Website.products.details',compact('product'));
+        }catch (\Exception $exception){
+            return redirect()->back();
+        }
+    }
 }
