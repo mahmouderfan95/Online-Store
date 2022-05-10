@@ -4,8 +4,6 @@
     Route::group(['prefix' => 'admin'],function (){
        Route::get('login','DashbordController@login')->name('admin.login');
        Route::post('post/login','DashbordController@postLogin')->name('admin.post.login');
-
-
     });
 
     Route::group(['prefix' => 'admin','middleware' => 'auth:admin'],function (){
@@ -13,9 +11,11 @@
         Route::post('logout','DashbordController@logout')->name('admin.logout');
         // categories route
         Route::resource('categories','CategoryController');
+        // products route
         Route::resource('products','ProductController');
+        // users route
         Route::resource('users','UsersController');
-    })
+    });
 
 
 

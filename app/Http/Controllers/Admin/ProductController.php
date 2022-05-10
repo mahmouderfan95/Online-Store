@@ -30,7 +30,7 @@ class ProductController extends Controller
                         'name' => $request->name,
                         'description' => $request->description,
                         'price' => $request->price,
-                        'image' => asset(public_path('uplodas/products/') . $file_name),
+                        'image' => asset('public/uplodas/products/' . $file_name),
                         'qty' => $request->qty,
                         'is_offer' => $request->is_offer,
                         'new_price' => $request->new_price,

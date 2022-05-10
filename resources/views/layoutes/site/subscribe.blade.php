@@ -1,5 +1,5 @@
 <!-- ================ Subscribe section start ================= -->
-<section class="subscribe-position">
+{{--  <section class="subscribe-position">
     <div class="container">
         <div class="subscribe text-center">
             <h3 class="subscribe__title">Get Update From Anywhere</h3>
@@ -20,5 +20,5 @@
 
         </div>
     </div>
-</section>
+</section>  --}}
 <!-- ================ Subscribe section end ================= -->
