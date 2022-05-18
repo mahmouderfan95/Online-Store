@@ -8,10 +8,15 @@ use Illuminate\Http\Request;
 class HomepageController extends Controller
 {
     public function index(){
-        $products = Product::with(['category' => function($q){
-            $q->select('id','name');
-        }])->where('status',true)->get(['id','name','image','price','category_id']);
-        return view('Website.homepage',compact('products'));
+        try {
+            $products = Product::with(['category' => function($q){
+                $q->select('id','name');
+            }])->where('status',true)->get(['id','name','image','price','category_id']);
+            return view('Website.homepage',compact('products'));
+        }catch (\Exception $exception){
+            return redirect()->back();
+        }
+
     }
 
     public function product_details($name){
@@ -24,5 +29,10 @@ class HomepageController extends Controller
         }catch (\Exception $exception){
             return redirect()->back();
         }
+    }
+
+    public function logout(){
+        auth('web')->logout();
+        return redirect(route('login'));
     }
 }

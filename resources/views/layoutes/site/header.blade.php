@@ -13,42 +13,30 @@
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
                         <li class="nav-item active"><a class="nav-link" href="{{route('homepage')}}">Home</a></li>
-                        <li class="nav-item submenu dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
-                                <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
-                                <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
-                                <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
-                                <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item submenu dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">Blog</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                                <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item submenu dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                                <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
-                                <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li>
-                            </ul>
-                        </li>
+                        @if(!auth('web')->user())
+                            <li class="nav-item"><a class="nav-link" href="{{route('register')}}">Register</a></li>
+                        @endif
+                        @if(!auth('web')->user())
+                            <li class="nav-item"><a class="nav-link" href="{{route('login')}}">Login</a></li>
+                        @endif
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     </ul>
 
                     <ul class="nav-shop">
                         <li class="nav-item"><button><i class="ti-search"></i></button></li>
                         <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
-                        <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
                     </ul>
+                    @if(auth('web')->user())
+                        <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{auth('web')->user()->name}}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Edit Profile</a>
+                            <a class="dropdown-item" href="{{route('user.logout')}}">Logout</a>
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </div>
         </nav>
