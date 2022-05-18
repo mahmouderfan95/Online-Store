@@ -17,7 +17,10 @@ class HomepageController extends Controller
     public function product_details($name){
         try{
             $product = Product::where('name',$name)->first();
-            return view('Website.products.details',compact('product'));
+            $related_product = Product::whereHas('category',function($q) use($product){
+                $q->where('name',$product->category->name);
+            })->whereNotIn('name',[$product->name])->get();
+            return view('Website.products.details',compact('product','related_product'));
         }catch (\Exception $exception){
             return redirect()->back();
         }

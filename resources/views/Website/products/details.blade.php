@@ -46,6 +46,35 @@
         </div>
     </div>
     <!--================End Single Product details =================-->
+    <!--================ Start related Product area =================-->
+    <section class="related-product-area section-margin--small">
+        <div class="container">
+            <div class="section-intro pb-60px">
+                <p>{{$product->category->name}}</p>
+                <h2>Related <span class="section-intro__style">Product</span></h2>
+            </div>
+            <div class="row mt-30">
+                @isset($related_product)
+                    @foreach($related_product as $product)
+                        <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
+                            <div class="single-search-product-wrapper">
+                                <div class="single-search-product d-flex">
+                                    <a href="#"><img src="{{$product->image}}" alt=""></a>
+                                    <div class="desc">
+                                        <a href="{{route('product.details',$product->name)}}" class="title">{{$product->name}}</a>
+                                        <div class="price">${{$product->price}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+                @endisset
+
+            </div>
+        </div>
+    </section>
+    <!--================ end related Product area =================-->
 
 
 @stop
