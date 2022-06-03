@@ -24,7 +24,7 @@ class ProductController extends Controller
         try{
             if($request->file('image')){
                 $image = $request->file('image');
-                $file_name = $image->getClientOriginalName();
+                $file_name = str_replace(' ','-',$image->getClientOriginalName());
                 $request->image->move(public_path('uploads/products/'), $file_name);
                     $productCreate = Product::create([
                         'name' => $request->name,

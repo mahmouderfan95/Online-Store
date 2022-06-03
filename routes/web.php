@@ -17,6 +17,11 @@ Route::get('/','HomepageController@index')->name('homepage');
 Route::get('products/details/{name}','HomepageController@product_details')->name('product.details');
 Route::get('user/logout','HomepageController@logout')->name('user.logout');
 
+Route::group(['middleware' => 'auth:web'],function(){
+   // routes
+    Route::get('user/edit/profile/{id}','UserController@editProfile')->name('user.edit.profile');
+    Route::post('update/profile','UserController@updateProfile')->name('user.update.profile');
+});
 
 
 Route::get('/home', 'HomeController@index')->name('home');

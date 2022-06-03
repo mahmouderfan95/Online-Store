@@ -32,7 +32,7 @@
                             {{auth('web')->user()->name}}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Edit Profile</a>
+                            <a class="dropdown-item" href="{{route('user.edit.profile',auth('web')->user()->id)}}">Edit Profile</a>
                             <a class="dropdown-item" href="{{route('user.logout')}}">Logout</a>
                         </div>
                     </div>
