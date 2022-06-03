@@ -15,12 +15,14 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/','HomepageController@index')->name('homepage');
 Route::get('products/details/{name}','HomepageController@product_details')->name('product.details');
-Route::get('user/logout','HomepageController@logout')->name('user.logout');
-
 Route::group(['middleware' => 'auth:web'],function(){
    // routes
+    Route::get('user/logout','HomepageController@logout')->name('user.logout');
     Route::get('user/edit/profile/{id}','UserController@editProfile')->name('user.edit.profile');
     Route::post('update/profile','UserController@updateProfile')->name('user.update.profile');
+
+    Route::post('product/add/favorite','FavoriteController@addProduct')->name('product.add.fav');
+    Route::get('user/favorites','FavoriteController@getProducts')->name('users.favorites');
 });
 
 
