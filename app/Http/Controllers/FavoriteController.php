@@ -9,7 +9,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class FavoriteController extends Controller
 {
-    public function addProduct(AddProduct $request){
+    public function add_product(AddProduct $request){
         try{
             $fav = Favorite::where('user_id',$request->user_id)->where('product_id',$request->product_id)->exists();
             if($fav){
@@ -30,4 +30,15 @@ class FavoriteController extends Controller
             return redirect()->back();
         }
     }
+
+    public function get_products(Request $request){
+        try{
+            $favs = Favorite::where('user_id',auth('web')->user()->id)->get();
+            return view('Website.products.favories_products',compact('favs'));
+        }catch (\Exception $exception){
+            Alert::error('error message',$exception->getMessage());
+            return redirect()->back();
+        }
+    }
+
 }

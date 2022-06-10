@@ -21,8 +21,8 @@ Route::group(['middleware' => 'auth:web'],function(){
     Route::get('user/edit/profile/{id}','UserController@editProfile')->name('user.edit.profile');
     Route::post('update/profile','UserController@updateProfile')->name('user.update.profile');
     // favorites routes
-    Route::post('product/add/favorite','FavoriteController@addProduct')->name('product.add.fav');
-    Route::get('user/favorites','FavoriteController@getProducts')->name('users.favorites');
+    Route::post('product/add/favorite','FavoriteController@add_product')->name('product.add.fav');
+    Route::get('user/favorites','FavoriteController@get_products')->name('users.favorites');
 });
 
 

@@ -23,8 +23,10 @@
                     </ul>
 
                     <ul class="nav-shop">
-                        <li class="nav-item">
-                            <button><i class="ti-heart"></i>
+                        <a href="{{route('users.favorites')}}">
+                            <li class="nav-item">
+                            <button>
+                                <i class="ti-heart"></i>
                                 @if(auth('web')->user())
                                     <span class="nav-shop__circle">
                                         {{\App\Models\Favorite::where('user_id',auth('web')->user()->id)->count()}}
@@ -33,6 +35,7 @@
                                     <span class="nav-shop__circle">0</span>
                                 @endif
                             </button> </li>
+                        </a>
                         <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
                     </ul>
                     @if(auth('web')->user())
