@@ -33,6 +33,7 @@
     <script src="{{asset('assets/site/vendors/mail-script.js')}}"></script>
     <script src="{{asset('assets/site/js/main.js')}}"></script>
     @yield('js')
+    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     </body>
 
 </html>

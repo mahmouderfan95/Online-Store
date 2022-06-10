@@ -20,7 +20,7 @@ Route::group(['middleware' => 'auth:web'],function(){
     Route::get('user/logout','HomepageController@logout')->name('user.logout');
     Route::get('user/edit/profile/{id}','UserController@editProfile')->name('user.edit.profile');
     Route::post('update/profile','UserController@updateProfile')->name('user.update.profile');
-
+    // favorites routes
     Route::post('product/add/favorite','FavoriteController@addProduct')->name('product.add.fav');
     Route::get('user/favorites','FavoriteController@getProducts')->name('users.favorites');
 });
