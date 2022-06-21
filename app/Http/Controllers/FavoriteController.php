@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Website\Favorites\AddProduct;
+use App\Models\Cart;
 use App\Models\Favorite;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;

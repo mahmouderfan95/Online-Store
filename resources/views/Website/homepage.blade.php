@@ -66,8 +66,14 @@
                                 <div class="card-product__img">
                                     <img class="card-img" src="{{ $product->image }}" alt="">
                                     <ul class="card-product__imgOverlay">
-{{--                                        <li><button><i class="ti-search"></i></button></li>--}}
-                                        <li><button><i class="ti-shopping-cart"></i></button></li>
+                                        <form action="{{route('cart.product.add')}}" method="POST">
+                                            @csrf
+                                            @if(auth('web')->user())
+                                                <input type="hidden" name="user_id" value="{{auth('web')->user()->id}}">
+                                            @endif
+                                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                                            <li><button type="submit"><i class="ti-shopping-cart"></i></button></li>
+                                        </form>
                                         <form action="{{route('product.add.fav')}}" method="POST">
                                             @csrf
                                             @if(auth('web')->user())

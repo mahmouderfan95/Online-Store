@@ -19,8 +19,8 @@ class CreateCartDetailsTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->integer('qty');
-            $table->double('total_price');
+            $table->integer('qty')->default(0);
+            $table->double('total_price')->default(0);
             $table->boolean('is_open')->default(false);
             $table->timestamps();
         });

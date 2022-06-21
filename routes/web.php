@@ -23,6 +23,8 @@ Route::group(['middleware' => 'auth:web'],function(){
     // favorites routes
     Route::post('product/add/favorite','FavoriteController@add_product')->name('product.add.fav');
     Route::get('user/favorites','FavoriteController@get_products')->name('users.favorites');
+    // cart route
+    Route::post('product/add/cart','CartController@add_product')->name('cart.product.add');
 });
 
 
