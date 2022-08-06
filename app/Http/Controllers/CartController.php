@@ -62,4 +62,22 @@ class CartController extends Controller
             return redirect()->back();
         }
     }
+
+    public function deleteProductFromCart($cart_id,$product_id){
+        try{
+            // delete product from cart
+        }catch (\Exception $exception){
+            Alert::error('error msg',$exception->getMessage());
+            return redirect()->back();
+        }
+    }
+
+    public function confirmCart(Request $request){
+        try{
+            // confirm cart
+        }catch (\Exception $exception){
+            Alert::error('error msg',$exception->getMessage());
+            return redirect()->back();
+        }
+    }
 }

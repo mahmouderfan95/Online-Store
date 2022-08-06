@@ -21,7 +21,7 @@
         <p style="" class="mt-3">ملاحظة : يتم الدفع عند الاستلام</p>
     </div>
     <div class="container" style="direction: rtl">
-        <form action="#" method="POST">
+        <form action="{{route('cart.product.confirm')}}" method="POST">
             @csrf
             @if(isset($details))
                 <table class="table">
@@ -59,7 +59,7 @@
                             </td>
                             <td class="product_result"></td>
                             <td>
-                                <a href="#" class="btn btn-danger">
+                                <a href="{{route('cart.product.delete',[$de->cart_id,$de->product_id])}}" class="btn btn-danger">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>

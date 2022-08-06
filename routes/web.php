@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth:web'],function(){
     // cart route
     Route::post('product/add/cart','CartController@add_product')->name('cart.product.add');
     Route::get('user/cart','CartController@getProductFromCart')->name('cart.get.products');
+    Route::get('cart/{cart_id}/product/{product_id}/delete','CartController@deleteProductFromCart')->name('cart.product.delete');
+    Route::post('confirm/cart','CartController@confirmCart')->name('cart.product.confirm');
 });
 
 
