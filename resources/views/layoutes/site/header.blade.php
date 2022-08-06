@@ -36,7 +36,28 @@
                                 @endif
                             </button> </li>
                         </a>
-                        <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+                        <a href="{{route('cart.get.products')}}">
+                            @if(auth('web')->user())
+                                @php
+                                    $cart = \App\Models\Cart::where('user_id',auth('web')->user()->id)->where('is_open',0)->first();
+                                    $details = \App\Models\CartDetails::where('id',$cart->id)->where('is_open',0)->count();
+                                @endphp
+                            @endif
+                            <li class="nav-item">
+                                <button>
+                                    <i class="ti-shopping-cart"></i>
+                                    @if(auth('web')->user())
+                                        <span class="nav-shop__circle">
+                                            {{$details ?? 0}}
+                                        </span>
+                                    @else
+                                        <span class="nav-shop__circle">
+                                            0
+                                        </span>
+                                    @endif
+                                </button>
+                            </li>
+                        </a>
                     </ul>
                     @if(auth('web')->user())
                         <div class="dropdown">

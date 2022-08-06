@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth:web'],function(){
     Route::get('user/favorites','FavoriteController@get_products')->name('users.favorites');
     // cart route
     Route::post('product/add/cart','CartController@add_product')->name('cart.product.add');
+    Route::get('user/cart','CartController@getProductFromCart')->name('cart.get.products');
 });
 
 

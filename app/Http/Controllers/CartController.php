@@ -44,4 +44,22 @@ class CartController extends Controller
             return redirect()->back();
         }
     }
+
+    public function getProductFromCart(){
+        try{
+            $cart = Cart::where('user_id',auth('web')->user()->id)
+                ->where('is_open',0)
+                ->first();
+            if($cart){
+                $details = CartDetails::where('cart_id',$cart->id)
+                    ->where('is_open',0)
+                    ->get();
+                return view('Website.cart.index',compact('cart','details'));
+            }
+            return view('Website.cart.index',compact('cart'));
+        }catch (\Exception $exception){
+            Alert::error('error msg',$exception->getMessage());
+            return redirect()->back();
+        }
+    }
 }
