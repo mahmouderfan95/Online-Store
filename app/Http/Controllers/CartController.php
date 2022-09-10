@@ -66,6 +66,15 @@ class CartController extends Controller
     public function deleteProductFromCart($cart_id,$product_id){
         try{
             // delete product from cart
+            Alert::success('product delete','product deleted success');
+            $product = CartDetails::where('cart_id',$cart_id)->where('product_id',$product_id)->first();
+            if($product){
+                $product->delete();
+                return redirect()->back();
+            }else{
+                Alert::error('error msg','product not found');
+                return redirect()->back();
+            }
         }catch (\Exception $exception){
             Alert::error('error msg',$exception->getMessage());
             return redirect()->back();

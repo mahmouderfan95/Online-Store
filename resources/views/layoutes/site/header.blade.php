@@ -40,7 +40,7 @@
                             @if(auth('web')->user())
                                 @php
                                     $cart = \App\Models\Cart::where('user_id',auth('web')->user()->id)->where('is_open',0)->first();
-                                    $details = \App\Models\CartDetails::where('id',$cart->id)->where('is_open',0)->count();
+                                    $details = \App\Models\CartDetails::where('cart_id',$cart->id)->where('is_open',0)->count();
                                 @endphp
                             @endif
                             <li class="nav-item">
