@@ -19,28 +19,31 @@
                         @if(!auth('web')->user())
                             <li class="nav-item"><a class="nav-link" href="{{route('login')}}">Login</a></li>
                         @endif
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                     </ul>
 
                     <ul class="nav-shop">
                         <a href="{{route('users.favorites')}}">
                             <li class="nav-item">
-                            <button>
-                                <i class="ti-heart"></i>
-                                @if(auth('web')->user())
-                                    <span class="nav-shop__circle">
-                                        {{\App\Models\Favorite::where('user_id',auth('web')->user()->id)->count()}}
-                                    </span>
-                                @else
-                                    <span class="nav-shop__circle">0</span>
-                                @endif
-                            </button> </li>
+                                <button>
+                                    <i class="ti-heart"></i>
+                                    @if(auth('web')->user())
+                                        <span class="nav-shop__circle">
+                                            {{\App\Models\Favorite::where('user_id',auth('web')->user()->id)->count()}}
+                                        </span>
+                                    @else
+                                        <span class="nav-shop__circle">0</span>
+                                    @endif
+                                </button>
+                            </li>
                         </a>
                         <a href="{{route('cart.get.products')}}">
                             @if(auth('web')->user())
                                 @php
                                     $cart = \App\Models\Cart::where('user_id',auth('web')->user()->id)->where('is_open',0)->first();
-                                    $details = \App\Models\CartDetails::where('cart_id',$cart->id)->where('is_open',0)->count();
+                                    if($cart){
+                                        $details = \App\Models\CartDetails::where('cart_id',$cart->id)->where('is_open',0)->count();
+                                    }
                                 @endphp
                             @endif
                             <li class="nav-item">

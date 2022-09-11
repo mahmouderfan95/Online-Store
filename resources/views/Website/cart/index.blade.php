@@ -40,7 +40,7 @@
                         <tr class="product-rows">
                             <td>{{$de->product->id}}</td>
                             <td>{{$de->product->name}}</td>
-                            <td><img width="100" data-src="{{$de->product->image}}"></td>
+                            <td><img width="100" src="{{$de->product->image}}"></td>
                             <td>
                                 <input type="hidden"  name="cart_id" value="{{$de->cart_id}}">
                                 <input type="hidden" name="user_id" value="{{$cart->user_id}}">
@@ -73,7 +73,7 @@
                 <input id="add_order" type="submit" value="اطلب الاوردر" class="btn btn-primary">
             @else
                 <div class="cart_empty mt-3" style="display: flex;justify-content: center;align-items: center">
-                    <img src="{{asset('assets/imgs/cart_empty.png')}}">
+                    <img src="{{asset('assets/site/img/cart_empty.png')}}">
                 </div>
                 <div class="cart_empty_text text-center mt-3">
                     <p>سلة المنتجات فارغة</p>
