@@ -10,4 +10,8 @@ class OrderDetails extends Model
     public function order(){
         return $this->belongsTo('App\Models\Order');
     }
+
+    public function cart(){
+        return $this->belongsTo('App\Models\Cart','cart_id');
+    }
 }

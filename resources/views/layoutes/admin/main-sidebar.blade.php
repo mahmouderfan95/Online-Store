@@ -51,6 +51,21 @@
                         </ul>
                     </li>
 
+                    <!-- orders -->
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#orders">
+                            <div class="pull-left">
+                                <i class="ti-user"></i>
+                                <span class="right-nav-text">الطلبات</span>
+                            </div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="orders" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{route('orders.index')}}">الطلبات</a></li>
+                        </ul>
+                    </li>
+
                     <!-- settings -->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#settings">

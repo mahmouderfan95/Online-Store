@@ -15,6 +15,10 @@
         Route::resource('products','ProductController');
         // users route
         Route::resource('users','UsersController');
+        // orders
+        Route::resource('orders','OrderController');
+        // order details
+        Route::get('order/{id}/details','OrderController@getDetails')->name('order.details');
     });
 
 
