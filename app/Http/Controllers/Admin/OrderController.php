@@ -19,7 +19,20 @@ class OrderController extends Controller
             return redirect()->back();
         }
     }
-
+    public function update(Request $request){
+        try{
+            Alert::success('success msg','تم تغير حالة الطلب');
+             $order = Order::where('id',$request->order_id)->first();
+             if($order){
+                 $order->status = $request->status;
+                 $order->save();
+                 return redirect()->back();
+             }
+        }catch (\Exception $exception){
+            Alert::error('error msg',$exception->getMessage());
+            return redirect()->back();
+        }
+    }
     public function getDetails($id){
         try{
             $details = OrderDetails::where('order_id',$id)->get();
